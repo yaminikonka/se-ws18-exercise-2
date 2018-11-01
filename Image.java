@@ -2,7 +2,7 @@ import java.io.*;
 
 class Image {
 
-	public byte[] data;
+	byte[] data;
 	int w, h;
 
 	Image( int _w, int _h ) { w = _w; h = _h; data = new byte[w*h*3]; }
