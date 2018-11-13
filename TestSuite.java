@@ -1,5 +1,6 @@
 import TinyTestJ.Test;
 import TinyTestJ.RunTests;
+import TinyTestJ.Assert;
 
 public class TestSuite {
 
@@ -7,17 +8,17 @@ public class TestSuite {
   @Test public static void Vec3DTest1() {
     Vec3D v1 = new Vec3D(1,0,0);
     Vec3D v2 = new Vec3D(3,0,4);
-    assert(v1.len() == 1.0);
-    assert(v2.len() == 5.0);
+    Assert.equals(v1.len(), 1.0);
+    Assert.equals(v2.len(), 5.0);
   }
 
   @Test public static void Vec3DTest2() {
     Vec3D v1 = new Vec3D(1,1,0);
     Vec3D v2 = new Vec3D(0,1,0);
     Vec3D v3 = v1.cross(v2);
-    assert(v3.x == 0.0);
-    assert(v3.y == 0.0);
-    assert(v3.z == 1.0);
+    Assert.equals(v3.x, 0.0);
+    Assert.equals(v3.y, 0.0);
+    Assert.equals(v3.z, 1.0);
   }
 
   // Sphere tests
@@ -25,18 +26,18 @@ public class TestSuite {
     Sphere s = new Sphere( new Vec3D(2,0,0), 1 );
     Entity e = s;
     Vec3D r = e.intersect( new Vec3D(1,0,0) );
-    assert(r.x == 1.0);
-    assert(r.y == 0.0);
-    assert(r.z == 0.0);
+    Assert.equals(r.x, 1.0);
+    Assert.equals(r.y, 0.0);
+    Assert.equals(r.z, 0.0);
   }
 
   @Test public static void SphereTest2() {
     Sphere s = new Sphere( new Vec3D(2,1,0), 1 );
     Entity e = s;
     Vec3D r = e.intersect( new Vec3D(1,0,0) );
-    assert(r.x == 2.0);
-    assert(r.y == 0.0);
-    assert(r.z == 0.0);
+    Assert.equals(r.x, 2.0);
+    Assert.equals(r.y, 0.0);
+    Assert.equals(r.z, 0.0);
   }
 
   @Test public static void SphereTest3() {
@@ -51,9 +52,9 @@ public class TestSuite {
     Plane p = new Plane( new Vec3D(2,0,0), new Vec3D(1,0,0) );
     Entity e = p;
     Vec3D r = e.intersect( new Vec3D(1,1,0) );
-    assert(r.x == 2.0);
-    assert(r.y == 2.0);
-    assert(r.z == 0.0);
+    Assert.equals(r.x, 2.0);
+    Assert.equals(r.y, 2.0);
+    Assert.equals(r.z, 0.0);
   }
 
   @Test public static void PlaneTest2() {
